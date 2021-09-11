@@ -1,0 +1,19 @@
+{
+  "name": "react-heroku-cdn",
+  "env": {
+    "DYNAMIC_PUBLIC_URL": {
+      "required": true
+    }
+  },
+  "formation": {},
+  "addons": [],
+  "stack": "heroku-20",
+  "buildpacks": [
+    {
+      "url": "https://github.com/mars/create-react-app-buildpack.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-awscli.git"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "root": "build/",
+  "routes": {
+    "/**": "index.html"
+  },
+  "https_only": true,
+  "logging": {
+    "access": true,
+    "error": "warn"
+  },
+  "basic_auth": false,
+  "proxies": {},
+  "headers": {
+    "/": {
+      "Cache-Control": "no-store, no-cache"
+    },
+    "/index.html": {
+      "Cache-Control": "no-store, no-cache"
+    },
+    "/service-worker.js": {
+      "Cache-Control": "no-store, no-cache"
+    },
+    "/static/**": {
+      "Cache-Control": "max-age=31536000"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "infrastructure",
+  "version": "0.1.0",
+  "bin": {
+    "infrastructure": "bin/infrastructure.js"
+  },
+  "scripts": {
+    "build": "tsc --project ./tsconfig.json",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "deploy": "npm run build && cdk bootstrap && cdk deploy -v --require-approval never"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.122.0",
+    "@types/jest": "^26.0.24",
+    "@types/node": "12.20.0",
+    "aws-cdk": "1.122.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0"
+  },
+  "dependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^3.9.10",
+    "@aws-cdk/aws-cloudfront": "^1.122.0",
+    "@aws-cdk/aws-iam": "^1.122.0",
+    "@aws-cdk/aws-s3-deployment": "^1.122.0",
+    "@aws-cdk/core": "^1.122.0",
+    "add": "^2.0.6",
+    "source-map-support": "^0.5.16"
+  }
+}
