@@ -1,3 +1,20 @@
+# AWS S3 + CloudFront on Heroku
+
+Demonstrating how S3 + CloudFront could be used with Heroku to serve static files
+
+Key parts of this setup is: 
+
+* infrastructure/ - CDK stack configuration (single stack config)
+* .profile - this script runs when Heroku boots up the application before the Release phase. Script replaces PUBLIC_URL build ENV variable `{{DYNAMIC_PUBLIC_URL}}` placeholder with the dynamic URL taken from `DYNAMIC_PUBLIC_URL` runtime ENV
+* Procfile - specifies the commands that are executed by the app on startup, such as how to run web dyno & release command
+* static.json - static nginx buildpack configuration. Mainly cache-control settings
+
+React app is built with https://github.com/coreui for demonstration purpose only, all credits goes to its respective owners
+
+_____
+
+
+
 [![@coreui coreui](https://img.shields.io/badge/@coreui%20-coreui-lightgrey.svg?style=flat-square)](https://github.com/coreui/coreui)
 [![npm package][npm-coreui-badge]][npm-coreui]
 [![NPM downloads][npm-coreui-download]][npm-coreui]  
@@ -73,7 +90,7 @@ $ yarn install
 $ npm start
 ```
 
-or 
+or
 
 ``` bash
 # dev server with hot reload at http://localhost:3000
@@ -97,7 +114,6 @@ or
 # build for production with minification
 $ yarn build
 ```
-
 ## What's included
 
 Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
@@ -152,9 +168,9 @@ Get updates on CoreUI's development and chat with the project maintainers and co
 
 ## Copyright and License
 
-copyright 2021 creativeLabs Łukasz Holeczek.   
+copyright 2021 creativeLabs Łukasz Holeczek.
 
- 
+
 Code released under [the MIT license](https://github.com/coreui/coreui-free-react-admin-template/blob/master/LICENSE).
 There is only one limitation you can't can’t re-distribute the CoreUI as stock. You can’t do this if you modify the CoreUI. In past we faced some problems with persons who tried to sell CoreUI based templates.
 
